@@ -10,6 +10,11 @@ raster/
 *.h5
 *.html
 *.png
+*.jpg
+*.jpeg
+# README 效果图是仓库资产，放行
+!docs/images/*.jpg
+!docs/images/*.jpeg
 *.zip
 scene_data.json
 *_data.json

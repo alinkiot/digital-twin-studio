@@ -12,6 +12,43 @@
 
 这是 WorkBuddy 的 Skill，也可以当纯脚本库用。
 
+## 效果展示
+
+下面全部由本仓库脚本生成、再由无头 Chromium 对**单文件 HTML** 直接截图，没有后期合成。
+材质、天空、水面波纹、投影桥影与灯点属于**表达性渲染，不作量测**；
+武汉案例周边路网 / 建筑为 OSM 不可达时的示意矢量（页面中已标注）。
+
+### 数字沙盘 · 写实黄昏
+
+![武汉长江大桥数字沙盘 · 无 UI 纯净图](docs/images/wuhan-sandbox-dusk.jpg)
+
+*Copernicus DEM 地形 + 江面 + 公铁两用桁架桥；无 UI 纯净图带信息展板，可直接用于汇报。*
+
+### 同一场景 · 三档光影氛围
+
+<table>
+  <tr>
+    <td align="center" width="33%"><img src="docs/images/wuhan-tech.jpg" width="100%" alt="科技蓝"><br><b>科技蓝</b><br><sub>冷色天光 · 软阴影 · 江面镜面波光</sub></td>
+    <td align="center" width="33%"><img src="docs/images/wuhan-dusk.jpg" width="100%" alt="写实黄昏"><br><b>写实黄昏</b><br><sub>低角度暖阳 · 大气暖雾 · 金色反光</sub></td>
+    <td align="center" width="33%"><img src="docs/images/wuhan-night.jpg" width="100%" alt="夜景灯光"><br><b>夜景灯光</b><br><sub>桥面路灯 · 城市窗光 · 冷色天光倒影</sub></td>
+  </tr>
+</table>
+
+*「日照方位」滑块会让日轮、江面高光与桥影一起移动；右上角是同一场景独立机位的桥身细部画中画。*
+
+### 四个交付案例
+
+<table>
+  <tr>
+    <td align="center" width="50%"><img src="docs/images/west-lake.jpg" width="100%" alt="西湖矢量孪生"><br><b>杭州西湖 · 城区矢量孪生</b><br><sub>真实 OSM：2,422 栋建筑 / 197.8 km 路网</sub></td>
+    <td align="center" width="50%"><img src="docs/images/jiangdong-bridge.jpg" width="100%" alt="江东大桥构件"><br><b>杭州江东大桥 · 悬索桥构件</b><br><sub>4 塔 / 8 主缆 / 112 吊索 / 28 可点选构件</sub></td>
+  </tr>
+  <tr>
+    <td align="center" width="50%"><img src="docs/images/yellow-crane-tower-floors.jpg" width="100%" alt="黄鹤楼逐层剖切"><br><b>武汉黄鹤楼 · 逐层剖切</b><br><sub>五层独立 mesh，逐层剖切与爆炸展开</sub></td>
+    <td align="center" width="50%"><img src="docs/images/wuhan-double-deck.jpg" width="100%" alt="公铁双层分解"><br><b>武汉长江大桥 · 双层分解</b><br><sub>上层公路 / 下层铁路与结构说明卡片</sub></td>
+  </tr>
+</table>
+
 ## 安装
 
 ```bash
@@ -53,6 +90,7 @@ assets/
   templates/bridge/             江东大桥：悬索桥构件
   templates/tower/              黄鹤楼：楼阁逐层
   templates/sandbox/            武汉长江大桥：数字沙盘 + 写实质感增强（含改常量清单）
+docs/images/                   README 效果图（8 张，由无头截图压缩，共约 0.5 MB）
 ```
 
 ## 快速开始
