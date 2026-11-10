@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+.DS_Store
+
+# 本地取数与构建产物（技能仓库只放脚本、模板与文档）
+out/
+probe/
+raster/
+*.tif
+*.h5
+*.html
+*.png
+*.zip
+scene_data.json
+*_data.json
+*.failed.json
+*.log
