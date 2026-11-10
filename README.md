@@ -121,6 +121,33 @@ docs/images/                   README 效果图（8 张，由无头截图压缩�
 
 ## 快速开始
 
+**装好技能后，直接对智能体说一句话就行**——脚本由它按 `SKILL.md` 自己跑，不用记命令。
+
+### 主提示词（复制后改方括号里的内容）
+
+> 用 `digital-twin-studio`，把【杭州西湖】做成**离线单文件**数字孪生大屏：
+> Copernicus DEM 地形打底、OSM 矢量铺建筑 / 路网 / 水系，主角做成面状城区与白堤；
+> 带图层开关、点选属性、5 个机位和剖切；最后无头浏览器出多视角图、跑冒烟检查，
+> 产物放到 `~/MyProject/tmp/voxcity/out/`，并写一份说明。
+
+### 换主角就换一句话
+
+| 想做什么 | 直接说 |
+| --- | --- |
+| 桥梁构件 | 「把杭州江东大桥做成数字孪生，4 塔 8 主缆、112 吊索，构件要能点选」 |
+| 楼阁逐层 | 「把武汉黄鹤楼做成五层逐层剖切 + 爆炸展开的数字孪生」 |
+| 数字沙盘 | 「做一张武汉长江大桥的沙盘图，要写实黄昏和无 UI 纯净出图」 |
+| 只提画质 | 「给现有大屏加 PBR 软阴影、水面着色器和科技蓝 / 黄昏 / 夜景三档氛围」 |
+
+一句话说清**地点 / 主角 / 想要的交互或画质 / 产物路径**就够了。OSM 不可达时它会自动
+降级为示意矢量并在页面、数据、说明三处标注；跑完会自己调 `render_views.py` 出 7 张视角图、
+`smoke_check.py` 冒烟，并告诉你哪些属于表达性渲染（不作量测）。
+
+<details>
+<summary>脚本用法（备选 · 智能体内部实际执行的是什么）</summary>
+
+最短路径（以黄鹤楼为例；`$S` 为技能根、`$W` 为工作目录）：
+
 ```bash
 S=~/MyProject/skills/digital-twin-studio
 PY=~/MyProject/tmp/voxcity-env/bin/python     # numpy + rasterio
@@ -140,7 +167,7 @@ $PY $S/scripts/render_views.py --html $W/../out/黄鹤楼_数字孪生.html \
 $PY $S/scripts/smoke_check.py --html $W/../out/黄鹤楼_数字孪生.html
 ```
 
-需要「像效果图」时，按 `references/visual_fx.md` 增加第 7 步；最省事的做法是
+需要「像效果图」时按 `references/visual_fx.md` 增加第 7 步；最省事的做法是
 `from visual_fx import inline_fx`，把返回的 CSS / JS 内联进 HTML 后调用
 `TwinFX.install({THREE, scene, camera, renderer, waterMesh})`。
 
@@ -149,6 +176,8 @@ $PY $S/scripts/smoke_check.py --html $W/../out/黄鹤楼_数字孪生.html
 ```bash
 python3 scripts/validate_skill.py
 ```
+
+</details>
 
 ## 已交付案例
 
