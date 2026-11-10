@@ -51,16 +51,42 @@
 
 ## 安装
 
+**最省事的做法：把仓库地址直接交给智能体，让它装。**
+
+仓库地址：
+
+```text
+git@github.com:alinkiot/digital-twin-studio.git
+```
+
+在 WorkBuddy、Codex、Claude Code、Cursor 等任意智能体里发一句话就行，例如：
+
+> 请从 `git@github.com:alinkiot/digital-twin-studio.git` 安装 `digital-twin-studio` 技能，
+> 放到你所在环境的 skills 目录（WorkBuddy 为 `~/.workbuddy/skills/`）；
+> 装完运行 `scripts/validate_skill.py` 自检，并把结果告诉我。
+
+智能体会自己 clone、放到正确目录、按需建软链、处理依赖并按 `SKILL.md` 完成自检，不用手工敲命令。
+
+两点提醒：
+
+- 该仓库目前是**私有**的，智能体所在环境需要能访问它（已配置 GitHub SSH key，或已登录 `gh` / git 凭据）；否则先给它授权，或把仓库设为公开。
+- 只想当纯脚本库用时不必装成技能，clone 到任意目录即可直接调 `scripts/` 与 `assets/templates/`。
+
+<details>
+<summary>手动安装（备选）</summary>
+
 ```bash
-# 作为 WorkBuddy 技能安装
+# 方式一：直接 clone 到 WorkBuddy 技能目录
 git clone git@github.com:alinkiot/digital-twin-studio.git \
     ~/.workbuddy/skills/digital-twin-studio
 
-# 或者放到本机技能工作区再做软链
+# 方式二：放到技能工作区再做软链
 git clone git@github.com:alinkiot/digital-twin-studio.git \
     ~/MyProject/skills/digital-twin-studio
 ln -s ~/MyProject/skills/digital-twin-studio ~/.workbuddy/skills/digital-twin-studio
 ```
+
+</details>
 
 `SKILL.md` 是技能入口（触发条件、工作流、硬约束）；`references/` 是细节文档；
 `scripts/` 与 `assets/templates/` 可直接单独调用，不装技能也能用。
